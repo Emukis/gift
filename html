@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi morrita</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e8f5e9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background 1s ease-in-out;
+            flex-direction: column;
+        }
+        .start-container {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 20px;
+            background: #a5d6a7;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+        .start-container:hover {
+            transform: scale(1.1);
+        }
+        .diary-container {
+            display: none;
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .reason, .conclusion {
+            display: none;
+        }
+        .reason.active, .conclusion.active {
+            display: block;
+        }
+        .next-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #66bb6a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .next-btn:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="start-container" onclick="startExperience()">
+        Dale clic aquí para empezar con mi regalo simp 🤞
+    </div>
+
+    <div class="diary-container" id="diary">
+        <div class="reason active">
+            <img src="image0.jpg" alt="Fotografía inicial">
+            <h2>Introducción</h2>
+            <p>✨ Por medio de este regalo busco enseñarte un poco por qué me gustas tanto ✨</p>
+        </div>
+        <div class="reason">
+            <img src="image1.jpg" alt="Fotografía 1">
+            <h2>Razón #1</h2>
+            <p>Porque me encanta tu deseo por crecer y mejorar como persona.</p>  
+        </div>
+        <div class="reason">
+            <img src="Image2.jpg" alt="Tu foto especial">
+            <h2>Razón #2</h2>
+            <p>Porque me encanta reír contigo sobre cualquier cosa y pasar el tiempo contigo.</p>
+        </div>
+        <div class="reason">
+            <img src="image3.jpg" alt="Tu foto especial">
+            <h2>Razón #3</h2>
+            <p>Porque me encanta escucharte hablar sobre lo mucho que te gusta el matcha y el pan de muerto.</p>
+        </div>
+        <div class="reason">
+            <img src="image4.png" alt="Tu foto especial">
+            <h2>Razón #4</h2>
+            <p>Porque puedo hablar contigo sobre cualquier tema, desde memes rancios hasta cosas nerds que no entiendo.</p>
+        </div>
+        <div class="reason">
+            <img src="image5.jpg" alt="Tu foto especial">
+            <h2>Razón #5</h2>
+            <p>Porque me encanta tu sonrisa.</p>
+        </div>
+        <div class="reason">
+            <img src="image6.jpg" alt="Tu foto especial">
+            <h2>Razón #6</h2>
+            <p>Por cómo cuidas a Sam con tanto empeño y amor.</p>
+        </div>
+        <div class="reason">
+            <img src="image7.png" alt="Tu foto especial">
+            <h2>Razón #7</h2>
+            <p>Por cómo te gusta el arte y el cine al igual que yo.</p>
+        </div>
+        <div class="reason">
+            <img src="image8.jpg" alt="Tu foto especial">
+            <h2>Razón #8</h2>
+            <p>Porque eres muy atractiva incluso cuando acabas de despertar.</p>
+        </div>
+        <div class="reason">
+            <img src="image9.jpg" alt="Tu foto especial">
+            <h2>Razón #9</h2>
+            <p>Porque me gusta estudiar contigo y me inspiras a ser mejor.</p>
+        </div>
+        <div class="reason">
+            <img src="image10.jpg" alt="Tu foto especial">
+            <h2>Razón #10</h2>
+            <p>Simplemente porque eres tú.</p>
+        </div>
+        <div class="conclusion">
+            <h2>Conclusión</h2>
+            <p>Después de todas estas razones, quiero que sepas que eres una persona super valiosa. Estoy muy agradecida de tenerte en mi vida y espero que siempre recuerdes lo v cuánto significas para mí. 💚</p>
+        </div>
+        <button class="next-btn" onclick="nextReason()">Siguiente</button>
+    </div>
+
+    <script>
+        let currentReason = 0;
+        function startExperience() {
+            document.querySelector('.start-container').style.display = 'none';
+            document.querySelector('body').style.backgroundColor = '#c8e6c9';
+            document.getElementById('diary').style.display = 'block';
+        }
+        function nextReason() {
+            let reasons = document.querySelectorAll('.reason');
+            let conclusion = document.querySelector('.conclusion');
+            if (currentReason < reasons.length) {
+                reasons[currentReason].classList.remove('active');
+            }
+            currentReason++;
+            if (currentReason < reasons.length) {
+                reasons[currentReason].classList.add('active');
+            } else {
+                conclusion.classList.add('active');
+                document.querySelector('.next-btn').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
